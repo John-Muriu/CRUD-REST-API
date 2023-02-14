@@ -55,3 +55,30 @@ exports.createUser = (res,req,next) => {
     
     })
 }
+
+
+// update user
+
+exports.updateUser =(req,res next) => {
+    const userId = req.param.userId;
+    const UpdateName = req.param.name;
+    const UpdateEmail =req.param.email;
+
+    User.findByPk(userId)
+    .then(user =>{
+        if (!user) {
+            return res.status(404).json({message:'User not found!'})
+        }
+
+        user.name = UpdateName;
+        user.email=UpdateEmail;
+        return user.save();
+    })
+    .then(result => {
+        res.status(200).json({message:'user Updated',user: result})
+
+    })
+
+    .catch(err => console.log(err));
+     
+}
