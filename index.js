@@ -47,5 +47,5 @@ sequelize
         console.log("Database connected")
         app.listen(3000);
     })
-
+    
     .catch(err => console.log(err));
