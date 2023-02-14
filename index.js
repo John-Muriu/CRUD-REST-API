@@ -25,7 +25,6 @@ app.get('/',(req,res,next) => {
     res.send('hello John');
 })
 
+//Crud routes
 
-app.use('/', (require('./routes/users'));
-
-)
+app.use('/', require('./routes/users'));
