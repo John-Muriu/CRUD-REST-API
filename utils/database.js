@@ -1,3 +1,7 @@
+// This file contain internal configutrations to allow connection between the NodeJs and 
+// running Postgres instance
+
+
 const Sequelize= require('sequelize');
 
 const sequelize = new Sequelize(

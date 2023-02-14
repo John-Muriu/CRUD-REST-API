@@ -25,7 +25,7 @@ exports.getUsers = (req,res,next) =>{
 
             }
 
-            .res.status(200).json({user:user});
+            res.status(200).json({user:user});
         })
         .catch(err => console(err));
 
@@ -53,13 +53,13 @@ exports.createUser = (res,req,next) => {
     .catch(err =>{
         console.log(err);
     
-    })
+    });
 }
 
 
 // update user
 
-exports.updateUser =(req,res next) => {
+exports.updateUser =(req,res, next) => {
     const userId = req.param.userId;
     const UpdateName = req.param.name;
     const UpdateEmail =req.param.email;
