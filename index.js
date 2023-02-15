@@ -23,7 +23,7 @@ app.use((req,res, next )=>{
 app.get('/',(req,res,next) => {
 
     res.send('hello John');
-})
+});
 
 //Crud routes
 
@@ -37,14 +37,14 @@ app.use((error,req,res, next) => {
     const status = error.statusCode || 500;
     const message = error.message ;
     res.status(status).json({message :message});
-})
+});
 
 // sync database
 
 sequelize
     .sync()
     .then(result => {
-        console.log("Database connected")
+        console.log("Database connected successfully");
         app.listen(3000);
     })
     
