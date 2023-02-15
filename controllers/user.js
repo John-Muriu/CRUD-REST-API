@@ -1,6 +1,6 @@
 // this file contains all the functions to excute in order to interact with database and hvae the 4 basic functionalities
 
-const User = require('../models/user')
+const User = require('../models/user');
 
 //CRUD controllers
 
@@ -12,12 +12,12 @@ exports.getUsers = (req,res, next) => {
         res.status(200).json({users:users});
      })
      .catch(err => console.log(err));
-}
+};
 
 // get user by id
 
 exports.getUsers = (req,res,next) =>{
-    const userId = req.param.userId
+    const userId = req.param.userId;
     User.findByPk(userId)
         .then(user => {
             if(!user){
@@ -29,7 +29,7 @@ exports.getUsers = (req,res,next) =>{
         })
         .catch(err => console(err));
 
-}
+};
 
 
 // Create user
@@ -54,7 +54,7 @@ exports.createUser = (res,req,next) => {
         console.log(err);
     
     });
-}
+};
 
 
 // update user
@@ -65,9 +65,9 @@ exports.updateUser =(req, res, next) => {
     const UpdateEmail =req.param.email;
 
     User.findByPk(userId)
-    .then(user =>{
+    .then(user => {
         if (!user) {
-            return res.status(404).json({message:'User not found!'})
+            return res.status(404).json({message:'User not found!'});
         }
 
         user.name = UpdateName;
@@ -75,13 +75,13 @@ exports.updateUser =(req, res, next) => {
         return user.save();
     })
     .then(result => {
-        res.status(200).json({message:'user Updated',user: result})
+        res.status(200).json({message:'user Updated',user: result});
 
     })
 
     .catch(err => console.log(err));
      
-}
+};
 
 
 // delete Users
@@ -92,7 +92,7 @@ exports.deleteUsers =(req,res, next ) => {
     User.findByPk(userId)
     .then(user =>{
         if (!user) {
-            return res.status(404).json({message:'user not found'})
+            return res.status(404).json({message:'user not found'});
 
         }
         return User.destroy({
@@ -106,4 +106,4 @@ exports.deleteUsers =(req,res, next ) => {
     })
     .catch(err => console.log(err));
 
-}
+};
