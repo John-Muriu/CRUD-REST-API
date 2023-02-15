@@ -50,7 +50,7 @@ exports.createUser = (res,req,next) => {
             user:result
         });
     })
-    .catch(err =>{
+    .catch(err => {
         console.log(err);
     
     });
@@ -59,7 +59,7 @@ exports.createUser = (res,req,next) => {
 
 // update user
 
-exports.updateUser =(req,res, next) => {
+exports.updateUser =(req, res, next) => {
     const userId = req.param.userId;
     const UpdateName = req.param.name;
     const UpdateEmail =req.param.email;
