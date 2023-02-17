@@ -38,7 +38,9 @@ cd crud-rest-api
  
  ### Install the Dependecies
  ```
- npm i express pg sequelize
+ npm i express pg sequelize 
+ 
+ 
 
 ```
   
